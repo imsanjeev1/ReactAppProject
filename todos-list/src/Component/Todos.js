@@ -4,9 +4,11 @@ export default function Todos(props) {
     return (
         <div className="container">
             <h3 className="text-center my-3">TODOS Section Work</h3>
-            {props.todos.map((todo)=>{
+            {props.todos.length===0?"Record not available":
+            props.todos.map((todo)=>{
                 return <Todo todo={todo} key={todo.id} onDelete={props.onDelete}/>
-            })}
+            })
+            }
         </div>
     )
 }

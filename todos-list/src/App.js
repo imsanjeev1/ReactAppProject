@@ -3,13 +3,19 @@ import Header from './Component/header';
 import Footer from './Component/Footer';
 import {Todo} from './Component/Todo';
 import Todos from './Component/Todos';
-
+import React ,{useState} from 'react'
 
 function App() {
     const onDelete =(todo) =>{
         console.log("Delete",todo);
+        setTodos(todos.filter((e)=>{
+           return e!==todo;
+
+        }))
+
     }
-    let todos=[
+    //setTodos update the value
+    const [todos,setTodos]=useState([
         {
             id:1,
             title:  "My First Todos",
@@ -29,7 +35,7 @@ function App() {
 
         }
 
-    ]
+    ])
   return (
       <>
     <Header title="Todos List" searchBar={false}/>
